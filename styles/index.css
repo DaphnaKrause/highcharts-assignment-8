@@ -1,0 +1,47 @@
+
+body {
+  background: #94b8b8;
+  color: #000;
+  font-family: 'Merriweather', serif;
+  margin: 4rem;
+
+}
+h1, h2 {
+  text-align: center;
+}
+
+p {
+  background: #ffffff;
+  padding: 2rem;
+  line-height: 1.7;
+  text-align: left;
+
+}
+
+a {
+  color: #009933;
+}
+a:hover {
+  color: #66ff66;
+}
+/* The video you sent out was for grid container... I thought we weren't suppose to use flex box grid comtainer for this assighnment?*/
+
+/* Portrait */
+@media screen and (max-width: 667px) {
+  body {
+    margin: 0.5rem;
+}
+  h1{
+    padding: 1rem;
+  }
+}
+
+/* Large Screens*/
+@media screen and (max-width: 1000px) {
+    body {
+      margin: 2rem;
+  }
+    h1{
+      padding: 1rem;
+    }
+  }

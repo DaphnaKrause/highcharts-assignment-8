@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title> Israel's development data analysis </title>
+
+  <link rel="stylesheet" href="styles/index.css">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+
+  <!-- add the Highcharts script elements here -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/themes/avocado.js"></script>
+
+</head>
+<body>
+
+<h1> The State of Israel's Development</h1>
+
+<h2> By Daphna Krause </h2>
+
+<p>
+  Israel was found in 1948. The sorted history goes back many years through wars and doctrines. Israel is now a flourishing nation with an abundance of innovation and industries. Access to mobile-cellular subscriptions and energy supply per capita, serve as an indication of development from 2015 till just last year (2017).
+
+	Access to this information allows for a true documentation Israel's progress. The data in the following graphs were taken from  <a href="http://data.un.org/en/iso/il.html" target="_blank">the United Nations</a> environment and infrastructure indicators.
+</p>
+
+
+
+
+<div id="container" style="width:100%; height:400px;"></div>
+<script>
+Highcharts.chart('container', {
+
+    title: {
+        text: 'Israeli Mobile-Cellular Subscriptions'
+    },
+
+    subtitle: {
+        text: 'per 100 inhabitants'
+    },
+
+    xAxis: {
+        categories: ['2005', '2010', '2017'],
+       title:{
+       text: 'Years'
+     }
+    },
+
+    yAxis: {
+     title:{
+     text: 'Value'
+     }
+    },
+
+    series: [{
+        type: 'column',
+        colorByPoint: true,
+        data: [117.5, 122.8, 133.5],
+        showInLegend: false
+    }]
+
+});
+
+
+$('#plain').click(function () {
+    chart.update({
+        chart: {
+            inverted: false,
+            polar: false
+        },
+        subtitle: {
+            text: 'Plain'
+        }
+    });
+});
+
+$('#inverted').click(function () {
+    chart.update({
+        chart: {
+            inverted: true,
+            polar: false
+        },
+        subtitle: {
+            text: 'Inverted'
+        }
+    });
+});
+
+$('#polar').click(function () {
+    chart.update({
+        chart: {
+            inverted: false,
+            polar: true
+        },
+        subtitle: {
+            text: 'Polar'
+        }
+    });
+});
+</script>
+
+<p><a href="http://data.un.org/en/iso/il.html" target="_blank">Source: The United Nations data on Israeli mobile-cellular subscriptions. </a></p>
+
+<div id="nextcontainer" style="width:100%; height:400px;"></div>
+<script>
+Highcharts.chart('nextcontainer', {
+    chart: {
+        type: 'area'
+    },
+    title: {
+        text: 'Energy supply per capita'
+    },
+    subtitle: {
+        text: 'Sources: <a href="http://data.un.org/en/iso/il.html">' +
+            'data.un.org</a>'
+    },
+    xAxis: {
+    		categories: ['2005', '2010', '2017'],
+        allowDecimals: false,
+        labels: {
+        	enabled: true
+        }
+    },
+    yAxis: {
+        title: {
+            text: 'Gigajoules'
+        },
+        labels: {
+            formatter: function () {
+                return this.value + 'GJ';
+            }
+        }
+    },
+    tooltip: {
+        pointFormat: '{series.name} had <b>{point.y:,.0f}</b><br/>energy supply per capita in {point.x}'
+    },
+    plotOptions: {
+        area: {
+            marker: {
+                enabled: false,
+                symbol: 'circle',
+                radius: 2,
+                states: {
+                    hover: {
+                        enabled: true
+                    }
+                }
+            }
+        }
+    },
+    series: [{
+        name: 'Israel',
+        data: [116,130,119]
+    },
+    ]
+});
+</script>
+
+ <p><a href="http://data.un.org/en/iso/il.html" target="_blank">Source:The United Nations data on Israeli energy supply per capita. </a></p>
+
+
+</body>
+</html>
